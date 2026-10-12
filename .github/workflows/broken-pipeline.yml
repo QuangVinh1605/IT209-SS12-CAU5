@@ -24,7 +24,10 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # LỖI 1: Thiếu bước phân quyền thực thi cho Gradle Wrapper (chmod +x gradlew)
+      # KHẮC PHỤC LỖI 1: Phân quyền thực thi cho Gradle Wrapper
+      - name: Grant Execute Permission to Gradle Wrapper
+        run: chmod +x gradlew
+
       - name: Run JUnit Tests & Package JAR
         run: ./gradlew test bootJar
 
